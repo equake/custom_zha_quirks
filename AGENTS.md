@@ -25,7 +25,7 @@ Deployment: copy `src/*.py` to `/config/custom_zha_quirks/` and restart ZHA. No 
 ```
 src/                    ← one .py file per quirk
 docs/                   ← one .md file per quirk (linked from README)
-examples/               ← reusable HA automation scripts/blueprints
+scripts/                ← reusable HA automation scripts/blueprints
 .github/workflows/      ← CI: import check on every push/PR
 pyproject.toml          ← dependencies (managed with uv)
 ```

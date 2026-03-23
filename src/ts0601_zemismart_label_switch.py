@@ -10,7 +10,7 @@ strings using a RAW Tuya DP type (not the standard STRING type).
 
 Automation — changing gang labels:
 
-  Use the reusable script in examples/zemismart_set_label.yaml (paste into
+  Use the reusable script in scripts/zemismart_set_label.yaml (paste into
   HA → Settings → Scripts → Add Script → Edit as YAML). One script works for
   all Zemismart switches on the network.
 

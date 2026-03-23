@@ -92,7 +92,7 @@ Gang labels are written as UTF-8 strings via a custom ZCL cluster. ZHA does not 
 
 ### Recommended: reusable script
 
-Use the script template in [`examples/zemismart_set_label.yaml`](../examples/zemismart_set_label.yaml):
+Use the script template in [`scripts/zemismart_set_label.yaml`](../scripts/zemismart_set_label.yaml):
 
 1. Copy the file content.
 2. In HA: **Settings → Scripts → Add Script → Edit as YAML** → paste → save.

@@ -16,9 +16,9 @@ This repository contains quirks that are not (yet) part of the official [zha-dev
 
 ## Quirks
 
-| Device | Model / Manufacturer ID | Quirk file | Documentation |
-|--------|------------------------|------------|---------------|
-| [Zemismart ZMS-206 4-gang switch with label screen](https://www.zemismart.com/products/zms-206us) | TS0601 / `_TZE284_y4jqpry8` | [`src/ts0601_zemismart_label_switch.py`](src/ts0601_zemismart_label_switch.py) | [docs/zemismart_4gang_label_switch.md](docs/zemismart_4gang_label_switch.md) |
+| Device | Model | Manufacturer ID | Quirk | Docs |
+|--------|-------|-----------------|-------|------|
+| [Zemismart ZMS-206 4-gang switch with label screen](https://www.zemismart.com/products/zms-206us) | TS0601 | `_TZE284_y4jqpry8` | [src/ts0601_zemismart_label_switch.py](src/ts0601_zemismart_label_switch.py) | [docs](docs/zemismart_4gang_label_switch.md) |
 
 ---
 
