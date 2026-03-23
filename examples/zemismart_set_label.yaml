@@ -1,0 +1,54 @@
+alias: Set Zemismart Label
+description: >
+  Change the display label on one gang of any Zemismart 4-gang switch.
+  Also activates the physical backlight for the configured duration.
+
+  Usage in an automation action:
+
+    service: script.set_zemismart_label
+    data:
+      device: "{{ device_id('light.sala_gang_1') }}"
+      gang: 1
+      label: "Sala"
+
+  The `device` field accepts any HA device_id — use device_id('entity_id')
+  to reference the switch by one of its light entities instead of a raw ID.
+
+fields:
+  device:
+    description: Zemismart 4-gang switch
+    required: true
+    selector:
+      device:
+        integration: zha
+        manufacturer: "_TZE284_y4jqpry8"
+  gang:
+    description: Gang number (1 = leftmost … 4 = rightmost)
+    required: true
+    selector:
+      number:
+        min: 1
+        max: 4
+        mode: box
+  label:
+    description: Label text — UTF-8, max 12 characters
+    required: true
+    selector:
+      text:
+
+sequence:
+  - variables:
+      ieee: >
+        {% set ns = namespace(ieee='') %}
+        {% for domain, identifier in device_attr(device, 'identifiers') %}
+          {% if domain == 'zha' %}{% set ns.ieee = identifier %}{% endif %}
+        {% endfor %}
+        {{ ns.ieee }}
+  - service: zha.set_zigbee_cluster_attribute
+    data:
+      ieee: "{{ ieee }}"
+      endpoint_id: "{{ gang | int }}"
+      cluster_id: 64640
+      cluster_type: in
+      attribute: switch_label
+      value: "{{ label }}"

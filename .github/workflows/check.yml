@@ -1,0 +1,36 @@
+name: Check quirks
+
+on: [push, pull_request]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v4
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Import all quirks
+        run: |
+          uv run python -c "
+          import importlib.util
+          import pathlib
+          import sys
+
+          failed = []
+          for f in sorted(pathlib.Path('src').glob('*.py')):
+              try:
+                  spec = importlib.util.spec_from_file_location('quirk', f)
+                  mod = importlib.util.module_from_spec(spec)
+                  spec.loader.exec_module(mod)
+                  print(f'  OK: {f}')
+              except Exception as e:
+                  print(f'  FAIL: {f} — {e}', file=sys.stderr)
+                  failed.append(f)
+
+          if failed:
+              sys.exit(1)
+          "
