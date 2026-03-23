@@ -2,7 +2,7 @@
 
 Custom ZHA quirks for Home Assistant — device-specific fixes and extensions built on top of [zha-quirks](https://github.com/zigpy/zha-device-handlers).
 
-[![Check quirks](https://github.com/equake/custom-zha-quirks/actions/workflows/check.yml/badge.svg)](https://github.com/equake/custom-zha-quirks/actions/workflows/check.yml)
+[![Check quirks](https://github.com/equake/custom_zha_quirks/actions/workflows/check.yml/badge.svg)](https://github.com/equake/custom_zha_quirks/actions/workflows/check.yml)
 
 ---
 
